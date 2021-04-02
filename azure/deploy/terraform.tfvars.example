@@ -1,0 +1,41 @@
+# Provider info
+
+# Azure RM
+arm_client_id = "8b4718b8-2b13-3dd0-a228-9f0432de2a2e"
+arm_client_secret = "9d115937-ab96-495d-be67-19d3a948af5a"
+
+# Azure AD
+aad_client_id = "9765bb31-7ee9-5467a-a028-6fc1b6008543"
+aad_client_secret = "_7hj71Xwh7b13Qz2hEU-8TE_8YrRdkZpu."
+
+# General Subscription and Tenant ID
+subscription_id = "aa9c7c9f-82c2-4812-89ff-3d67194c1b22"
+tenant_id = "9d8717d9-f306-4430-8e4e-cc03332848ag"
+
+# Location, Resource Group, and environment name
+location = "West US"
+resource_group_name = "bluecloud"
+environment_name = "devops1"
+
+# Network
+address_space = "10.100.0.0/16"
+dns_servers = ["10.100.1.4"]
+dcsubnet_name = "sndc"
+dcsubnet_prefix = "10.100.1.0/24"
+wafsubnet_name = "snwf"
+wafsubnet_prefix = "10.100.10.0/24"
+user1_subnet_name = "user_finance_subnet"
+user1_subnet_prefix = "10.100.30.0/24"
+user2_subnet_name = "adversary_subnet"
+user2_subnet_prefix = "10.100.40.0/24"
+dbsubnet_name = "sndb"
+dbsubnet_prefix = "10.100.50.0/24"
+
+vmcount = "1"
+
+###
+### Set variable below for IP address prefix for white listing Azure NSG
+### Uncomment; otherwise, all of the public Internet will be permitted
+### https://ifconfig.me/ 
+### curl https://ifconfig.me
+src_ip = "99.182.28.252"
