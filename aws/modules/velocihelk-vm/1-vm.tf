@@ -4,7 +4,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["*ubuntu-bionic-18.04-*"]
+    values = ["*ubuntu-bionic-18.04-amd64-pro-serv*"]
   }
   owners = ["679593333241"] # Amazon re-direct to "Supported Images" 
 }

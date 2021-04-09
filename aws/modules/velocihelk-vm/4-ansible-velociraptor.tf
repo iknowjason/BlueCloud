@@ -16,7 +16,6 @@
   }
 
   ## config file download after adding client parameter for trusting self-signed cert
-  ## this is necessary for current convenience
   provisioner "local-exec" {
     command = "scp -i ${path.module}/ssh_key.pem ubuntu@${aws_instance.velocihelk-bluecloud.public_ip}:/home/ubuntu/server.config.yaml ${path.module}/files/config.yaml"
   }

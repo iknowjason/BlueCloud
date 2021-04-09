@@ -10,7 +10,7 @@
       action: shell curl -L 'https://github.com/iknowjason/BlueTools/blob/main/velociraptor-v0.5.6-linux-amd64.gz?raw=true' -o velociraptor.gz 
 
     - name: decompress the Velociraptor gzip
-      shell: gzip -d velociraptor.gz
+      shell: gzip -f -d velociraptor.gz
       args:
         chdir: /home/ubuntu
 
@@ -41,7 +41,9 @@
         chdir: /home/ubuntu
 
     - name: Install deb package and service 
-      shell: dpkg -i velociraptor_0.5.6_server.deb 
+      shell: | 
+        mv /var/lib/dpkg/lock /var/lib/dpkg/lock.bak 
+        dpkg -i velociraptor_0.5.6_server.deb 
       args:
         chdir: /home/ubuntu
 

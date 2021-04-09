@@ -1,8 +1,5 @@
 resource "null_resource" "provision-sec_tools" {
 
-  ## Run this module is var.install_agent boolean is true
-  count = var.install_agent ? 1 : 0
-
   provisioner "local-exec" {
     command = "sleep 60"
   }
@@ -15,7 +12,7 @@ resource "null_resource" "provision-sec_tools" {
     inline = ["whoami"]
 
     connection {
-      host     = azurerm_public_ip.win10-external.ip_address
+      host     = aws_instance.windows.public_ip 
       type     = "winrm"
       user     = var.admin_username
       password = var.admin_password
@@ -27,7 +24,7 @@ resource "null_resource" "provision-sec_tools" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i '${path.module}/hosts-${var.endpoint_hostname}.cfg' '${path.module}/playbook.yml'"
+    command = "ansible-playbook -i '${path.module}/hosts.cfg' '${path.module}/playbook.yml'"
   }
-  depends_on = [azurerm_windows_virtual_machine.win10]
+  depends_on = [aws_instance.windows]
 }

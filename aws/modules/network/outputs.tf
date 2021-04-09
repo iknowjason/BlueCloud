@@ -10,3 +10,6 @@ output "sn_velocihelk" {
 output "sg_velocihelk" {
   value = aws_security_group.bluecloud_velocihelk.id
 }
+output "sg_windows" {
+  value = aws_security_group.bluecloud_windows.id
+}

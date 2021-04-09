@@ -22,7 +22,7 @@ locals {
   # Velociraptor + HELK system (velocihelk)
   vhprivate_ip_address      = "10.100.1.5"
 
-  # endpoint1 - Windows 10 Pro
+  # endpoint1 - Windows Server 2019 
   prefix                    = "rtc"
   ad_domain                 = "rtc.local"
   endpoint1_ip	            = "10.100.30.11"
@@ -74,20 +74,13 @@ module "velocihelk" {
 
 }
 
-### Create Windows 10 Pro VM #1
-/*module "win10-vm1" {
-  source                    = "../modules/win10-vm"
-  resource_group_name       = module.network.out_resource_group_name
-  location                  = var.location
-  prefix                    = local.prefix
-  ad_domain                 = local.ad_domain
-  endpoint_hostname         = local.endpoint1_hostname
-  endpoint_ip               = local.endpoint1_ip
-  endpoint_ad_user          = local.endpoint1_ad_user
-  endpoint_ad_password      = local.endpoint1_ad_password
-  #subnet_id                 = module.network.user1_subnet_subnet_id
+### Create Windows Server 2019 
+module "ws2019" {
+  source                    = "../modules/ws2019-vm"
+  sg_windows	             = module.network.sg_windows 
+  sn_windows                 = module.network.sn_windows 
+  key_name	             = module.key_pair.this_key_pair_key_name
+  private_key	            = tls_private_key.this.private_key_pem
   admin_username            = local.admin_username
   admin_password            = local.admin_password
-  install_agent		    = local.endpoint1_install_agent
-  vmcount                   = var.vmcount
-}*/
+}

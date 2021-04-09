@@ -221,6 +221,10 @@ if all_hosts:
 
             ## Append to a list for later running
             list1.append(f)
+        else:
+            # Check for hosts.cfg
+            if f == 'hosts.cfg':
+                list1.append(f)
 else:
     list1.append(args.config_file)
 ### End of Find list of hosts.cfg in working directory
