@@ -65,14 +65,8 @@ module "network" {
   src_ip              = var.src_ip
   dcsubnet_prefix     = var.dcsubnet_prefix
   dcsubnet_name       = var.dcsubnet_name
-  wafsubnet_name      = var.wafsubnet_name
-  wafsubnet_prefix    = var.wafsubnet_prefix
   user1_subnet_name   = var.user1_subnet_name
   user1_subnet_prefix = var.user1_subnet_prefix
-  user2_subnet_name   = var.user2_subnet_name
-  user2_subnet_prefix = var.user2_subnet_prefix
-  dbsubnet_name       = var.dbsubnet_name
-  dbsubnet_prefix     = var.dbsubnet_prefix
 }
 
 ##########################################################
