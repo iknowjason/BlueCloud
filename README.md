@@ -39,13 +39,15 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 * **Approximate Monthly Cost:**  $ per month
 
 # Infrastructure and Credentials
+* **Velociraptor + HELK Internal IP**
+  * 10.100.1.5
+* **Windows Endpoint Internal IP**
+  * 10.100.30.11
 * **Windows VM Admin credentials:**
   * RTCAdmin:Password123
 * **Subnets**
   * 10.100.1.0/24 (Server Subnet with HELK + Velociraptor)
   * 10.100.30.0/24 (User Subnet with Windows Endpoint)
-* **Velociraptor + HELK Internal IP**
-  * 10.100.1.5
 * **HELK + Velociraptor Linux OS username**  
   * helk (Uses SSH public key auth)
 * **HELK Kibana Administrator Password for https port 443**  
