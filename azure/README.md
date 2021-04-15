@@ -84,7 +84,7 @@ src_ip = "192.168.87.4"
 **Step 6:** Run the commands to initialize terraform and apply the resource plan
 
 ```
-$ cd PurpleCloud/deploy
+$ cd BlueCloud/azure/deploy
 $ terraform init
 $ terraform apply -var-file=terraform.tfvars -auto-approve
 ```
