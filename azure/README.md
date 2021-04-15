@@ -43,7 +43,7 @@ tenant_id = ""
 
 **Step 3:** Clone this repo
 ```
-$ git clone https://github.com/iknowjason/PurpleCloud.git
+$ git clone https://github.com/iknowjason/BlueCloud.git
 ```
 
 **Step 4:** First, copy the terraform.tfexample to terraform.tfvars.  Next, using your favorite text editor, edit the terraform.tfvars file for the Azure resource provider matching your Azure Service Principal credentials.  
