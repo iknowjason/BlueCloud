@@ -90,3 +90,10 @@ $ terraform apply -var-file=terraform.tfvars -auto-approve
 ```
 
 This should start the Terraform automated deployment plan
+
+
+# Shutting down / cleaning up
+```
+$ cd BlueCloud/azure/deploy
+$ ./destroy.sh
+```
