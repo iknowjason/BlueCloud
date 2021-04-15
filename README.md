@@ -4,6 +4,8 @@ Automated Terraform deployment of HELK in Azure!  Automated deployment of one HE
 # Overview
 Multi-use Hybrid + Identity Cyber Range implementing a small Active Directory Domain in Azure alongside Azure AD and Azure Domain Services.  Automated templates for building your own Pentest / Red Team / Cyber Range in the Azure cloud!  Purple Cloud is a small Active Directory enterprise deployment automated with Terraform / Ansible Playbook templates to be deployed in Azure.  Purple Cloud also includes an adversary node accessible over RDP as well as a DFIR & Live Response system (Velociraptor + HELK).
 
+# Overview
+
 Automated Terraform deployment of Velociraptor in Azure!  
 
 https://www.velocidex.com/about/
@@ -24,6 +26,7 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 * Azure Network Security Groups (NSGs) can whitelist your source prefix, for added security
 * The following ports are opened through Azure NSGs for ingress TCP traffic: RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), HTTPS (443), Spark (8080), KQL (8088), Zookeeper (2181)
 
+# Quick Fun Facts:
 * Deploys one (1) Ubuntu Linux Velociraptor Server and one (1) Windows 10 Professional endpoint
 * Automatically registers the endpoint to the Velociraptor server with TLS self-signed certificate configuration
 * Uses Terraform templates to automatically deploy in Azure with VMs
@@ -184,13 +187,39 @@ This project includes three security tools to run APT simulations for generating
 
 **1.  Atomic Red Team (ART)**
 
-The Atomic Red Team scripts are downloaded from the official Github repo [1] and the Invoke-AtomicRedTeam execution framework is automatically downloaded and imported from the following repo [2].  This allows you to more easily run atomic tests and the modules are imported into the powershell session everytime you launch a powershell session.  This is controlled from the following powershell environment script:
+The Atomic Red Team scripts are downloaded from the official Github repo [5] and the Invoke-AtomicRedTeam execution framework is automatically downloaded and imported from the following repo [6].  This allows you to more easily run atomic tests and the modules are imported into the powershell session everytime you launch a powershell session.  This is controlled from the following powershell environment script:
 
-```C:\Users\VAdmin\Documents\WindowsPowerShell\Microsoft.Powershell_profile.ps1```
+```C:\Users\RTCAdmin\Documents\WindowsPowerShell\Microsoft.Powershell_profile.ps1```
 
 Now that this is out of the way, let's show how to run an atomic test for ART!
 
-From a powershell session, simply run:
+**Remotely Running Atomics from Linux**
+
+First, there is a python script that you can run to remotely invoke ART from your linux system.  It's a simple wrapper to Ansible Playbook and the location of the script is here:
+```
+PurpleCloud/modules/win10-vm/invoke-art.py
+```
+Run it like this:
+```
+python3 invoke-art.py
+```
+The script looks for all hosts.cfg files in the working directory and runs the atomic tests against all Windows 10 hosts.  If you only want to run against one of the hosts, run it with the -h flag.  For example:
+```
+python3 invoke-art.py -h hosts-Win10-Liem.cfg
+```
+Running it with the -a flag will specify an atomic.
+```
+python3 invoke-art.py -a T1558.003
+```
+The script looks for the atomic tests in windows index file:
+```
+/modules/win10-vm/art/atomic-red-team/atomics/Indexes/Indexes-CSV/windows-index.csv
+
+```
+
+**Manually Running Atomics from the Windows Endpoint**
+
+RDP into the Windows 10 endpoint.  From a powershell session, simply run:
 ```PS C:\ > Invoke-AtomicTest <ATOMIC_TEST> -PathToAtomicsFolder C:\terraform\ART\atomic-red-team-master\atomics```
 
 
@@ -199,15 +228,11 @@ The atomics are in the main project directory path of ```C:\terraform\ART\atomic
 
 Example of running T1007: 
 
-```PS C:\Users\VAdmin> Invoke-AtomicTest T1007 -PathToAtomicsFolder C:\terraform\ART\atomic-red-team-master\atomics```
-
-[1] https://github.com/redcanaryco/atomic-red-team
-
-[2] https://github.com/redcanaryco/invoke-atomicredteam
+```PS C:\Users\RTCAdmin> Invoke-AtomicTest T1007 -PathToAtomicsFolder C:\terraform\ART\atomic-red-team-master\atomics```
 
 **2.  Elastic Detection Rules RTA (Red Team Attacks) scripts**
 
-In June of 2020, Elastic open sourced their detection rules, including Python attack scripts through the Red Team Automation (RTA) project.  The following repo [3] is automatically downloaded and extracted using Terraform and Ansible scripts.  To run them, launch a cmd or powershell session and use python to run each test from the following directory:
+In June of 2020, Elastic open sourced their detection rules, including Python attack scripts through the Red Team Automation (RTA) project.  The following repo [7] is automatically downloaded and extracted using Terraform and Ansible scripts.  To run them, launch a cmd or powershell session and use python to run each test from the following directory:
 
 Change into the directory:  
 
@@ -223,16 +248,12 @@ Example of 'smb_connection' ttp:
 
 You can browse all TTPs in the 'rta' sub-directory
 
-[3] https://github.com/elastic/detection-rules
-
 **3.  APTSimulator**
 
-The APTSimulator tool [4] is automatically downloaded.  Simply extract the Zip archive and supply the zip password of 'apt'.
+The APTSimulator tool [8] is automatically downloaded.  Simply extract the Zip archive and supply the zip password of 'apt'.
 
 ```C:\terraform\APTSimulator.zip```
 
 Invoke a cmd prompt and run the batch file script:
 
 ```C:\terraform\ATPSimulator\APTSimulator\APTSimulator.bat```
-
-[4] https://github.com/NextronSystems/APTSimulator
