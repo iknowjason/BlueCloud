@@ -54,6 +54,10 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
   * helk:hunting
 * **Velociraptor GUI Administrator Password for Port 8889**  
   * vadmin:vadmin
+* **Windows OS in Azure:**
+  * Windows 10 Pro
+* **Windows OS in AWS:**
+  * Windows 2019 Server
 
 # Remote Access (After Deployment)
 * Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
