@@ -23,10 +23,10 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 
 
 # Features and Information
+* **New Feature: Combined Velociraptor + HELK System!**  Velociraptor [1] + Hunting ELK [2] System: Windows 10 Endpoints instrumented with agents to auto register Velociraptor and send Sysmon logs
 * **New Feature:**  Three tools for Adversary Simulation: Script to automatically invoke Atomic Red Team unit tests using Ansible playbook.
-* **New Feature:**  Velociraptor [1] + Hunting ELK [2] System: Windows 10 Endpoints instrumented with agents to auto register Velociraptor and send Sysmon logs
-* Deploys one Linux 18.04 HELK Server.  Deploys HELK install option #4, including KAFKA + KSQL + ELK + NGNIX + SPARK + JUPYTER + ELASTALERT
-* Terraform provider support for AWS and Azure
+* **New Feature:**  Support for AWS and Azure - Terraform provider support for AWS, Azure.
+* Deploys one Linux 18.04 HELK Server with data science capabiliies.  Deploys HELK install option #4, including KAFKA + KSQL + ELK + NGNIX + SPARK + JUPYTER + ELASTALERT
 * Windows endpoint is automatically configured with Sysmon (SwiftOnSecurity) and Winlogbeat
 * Windows endpoint is automatically configured to use HELK configuration + Kafka Winlogbeat output to send logs to HELK
 * Automatically registers the Windows endpoint to the Velociraptor server with TLS self-signed certificate configuration
