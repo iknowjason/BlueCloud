@@ -6,7 +6,7 @@
 * Terraform:  Tested on v0.14.7
 * Ansible:  Tested on 2.9.6
 
-## Installation Steps
+## Azure Installation Steps
 
 **Note:**  Tested on Ubuntu 20.04
 
