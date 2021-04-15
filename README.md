@@ -27,55 +27,20 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 
 
 # Features and Information
-* **New Feature:**  Azure Active Directory terraform module:  Deploys Azure Active Directory users, groups, applications, and service principals
-* **New Feature:**  Azure Domain Services terraform module:  Deploys Azure AD Domain Services for your managed AD in the Azure cloud
 * **New Feature:**  Three tools for Adversary Simulation: Script to automatically invoke Atomic Red Team unit tests using Ansible playbook.
 * **New Feature:**  Velociraptor [1] + Hunting ELK [2] System: Windows 10 Endpoints instrumented with agents to auto register Velociraptor and send Sysmon logs
-* Pentest adversary Linux VM accessible over RDP
 * Deploys one Linux 18.04 HELK Server.  Deploys HELK install option #4, including KAFKA + KSQL + ELK + NGNIX + SPARK + JUPYTER + ELASTALERT
-* Windows 10 endpoints with Sysmon (SwiftOnSecurity) and Winlogbeat
-* Windows 10 endpoints are automatically configured to use HELK configuration + Kafka Winlogbeat output to send logs to HELK
-* Automatically registers the endpoint to the Velociraptor server with TLS self-signed certificate configuration
+* Terraform provider support for AWS and Azure
+* Windows endpoint is automatically configured with Sysmon (SwiftOnSecurity) and Winlogbeat
+* Windows endpoint is automatically configured to use HELK configuration + Kafka Winlogbeat output to send logs to HELK
+* Automatically registers the Windows endpoint to the Velociraptor server with TLS self-signed certificate configuration
 * Windows endpoint includes Atomic Red Team (ART), Elastic Detection RTA, and APTSimulator
-* One (1) Windows 2019 Domain Controller and one (1) Windows 10 Pro Endpoint (with three more that can be easily enabled)
-* Automatically joins all Windows 10 computers to the AD Domain (with option to disable Domain Join per machine)
 * Uses Terraform templates to automatically deploy in Azure with VMs
 * Terraform templates write customizable Ansible Playbook configuration
-* Post-deployment Powershell script provisions three domain users on the 2019 Domain Controller and can be customized for many more
-* Azure Network Security Groups (NSGs) can whitelist your source prefix (for added security)
-* Post-deploy Powershell script that adds registry entries on each Windows 10 Pro endpoint to automatically log in each username into the Domain as respective user.  This feature simulates a real AD environment with workstations with interactive domain logons.  
-* Default Modules (Enabled):  One Windows Server, One Windows 10 Endpoint, One Velociraptor + HELK Server
-* Extra Modules (Disabled):  One Linux Adversary, Three Windows 10 Endpoints, Azure AD, Azure AD Domain Services
-* **Approximate build time:**  16 minutes
-* **Approximate Monthly Cost:**  $ per month
-
-
-# Quick Fun Facts:
-* Deploys one (1) Ubuntu Linux 18.04 HELK Server
-* Automatically deploys this HELK install option:  Option 4: 8GB includes KAFKA + KSQL + ELK + NGNIX + SPARK + JUPYTER + ELASTALERT
-* Deploys one (1) Windows 10 Professional endpoint with Sysmon (SwiftOnSecurity) and Winlogbeat
-* Windows endpoint is automatically configured to use HELK configuration + Kafka Winlogbeat output to send logs to HELK
-* Windows endpoint includes Atomic Red Team (ART), Elastic Detection RTA, and APTSimulator
-* Terraform VM modules are flexible, allowing you to add your own new VMs in Azure
-* Terraform templates write Ansible Playbook configuration, which can be customized
-* **Deployment Time:**  Approximately 15 minutes
-* **Approximate Monthly Cost:** $104.59 per month
-* Azure Network Security Groups (NSGs) can whitelist your source prefix, for added security
-* The following ports are opened through Azure NSGs for ingress TCP traffic: RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), HTTPS (443), Spark (8080), KQL (8088), Zookeeper (2181)
-
-# Quick Fun Facts:
-* Deploys one (1) Ubuntu Linux Velociraptor Server and one (1) Windows 10 Professional endpoint
-* Automatically registers the endpoint to the Velociraptor server with TLS self-signed certificate configuration
-* Uses Terraform templates to automatically deploy in Azure with VMs
-* Terraform VM modules are flexible, allowing you to add your own new VMs in Azure
-* Windows endpoint includes Atomic Red Team (ART), Elastic Detection RTA, and APTSimulator
-* Velociraptor server service is installed via Debian package
-* Terraform templates write Ansible Playbook configuration, which can be customized
-* **Deployment Time:**  Approximately 8 minutes and 50 seconds
-* **Approximate Monthly Cost:**  $57.91 per month
-* Azure Network Security Groups (NSGs) can whitelist your source prefix, for added security
-* The following ports are opened through Azure NSGs for ingress TCP traffic:  RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), Velociraptor GUI (8889), Velociraptor Agent (8000)
-
+* Azure and AWS Security Groups (NSGs) can whitelist your source prefix (for added security)
+* The following ports are opened through Azure and AWS Security Groups for ingress TCP traffic: RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), HTTPS (443), Spark (8080), KQL (8088), Zookeeper (2181), Velociraptor GUI (8889), Velociraptor Agent (8000)
+**Approximate build time:**  16 minutes
+**Approximate Monthly Cost:**  $ per month
 
 # Infrastructure and Credentials
 * Windows 10 VM Admin credentials:  HELKAdmin:Password123
@@ -97,31 +62,17 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 * Windows 10 VM Internal IP:  10.100.30.11
 * Public IP Addresses:  Dynamic Azure allocation for both Velociraptor and Windows 10 VM
 
-
-# Infrastructure and Credentials
-* **All Domain User passwords:**  Password123
-* **Domain:**  RTC.LOCAL
-* Local Administrator Credentials on all Windows OS Systems
-  * RTCAdmin:Password123
 * **Subnets**
-  * 10.100.1.0/24 (Server Subnet with Domain Controller, HELK + Velociraptor)
-  * 10.100.10.0/24 (waf subnet - currently reserved)
-  * 10.100.20.0/24 (AD Domain Services (If Enabled))
-  * 10.100.30.0/24 (User Subnet with Windows 10 Pro)
-  * 10.100.40.0/24 (Linux Adversary (If Enabled)
-  * 10.100.50.0/24 (db subnet - currently reserved)
+  * 10.100.1.0/24 (Server Subnet with HELK + Velociraptor)
+  * 10.100.30.0/24 (User Subnet with Windows Endpoint)
 * **Velociraptor + HELK Internal IP**
   * 10.100.1.5
-* **Windows Server 2019**  
-  * 10.100.1.4
 * **HELK + Velociraptor Linux OS username**  
   * helk (Uses SSH public key auth)
 * **HELK Kibana Administrator Password for https port 443**  
   * helk:hunting
 * **Velociraptor GUI Administrator Password for Port 8889**  
   * vadmin:vadmin
-* Public IP Addresses:  Dynamic Azure allocation for all Systems
-
 
 # Remote Access (After Deployment)
 * Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
