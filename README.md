@@ -42,26 +42,8 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 **Approximate build time:**  16 minutes
 **Approximate Monthly Cost:**  $ per month
 
-# Infrastructure and Credentials
-* Windows 10 VM Admin credentials:  HELKAdmin:Password123
-* HELK Linux OS username:  helk (Uses SSH public key auth)
-* HELK Kibana Administrator Password for https port 443:  helk:hunting
-* Server Subnet (HELK):  10.100.1.0/24
-* User Subnet (Windows 10 VM):  10.100.30.0/24
-* HELK Internal IP:  10.100.1.4
-* Windows 10 VM Internal IP:  10.100.30.11
-* Public IP Addresses:  Dynamic Azure allocation for both HELK and Windows 10 VM
-
-# Infrastructure and Credentials
-* Windows 10 VM Admin credentials:  VAdmin:Password123
-* Velociraptor Linux OS username:  vadmin (Uses SSH public key auth)
-* Velociraptor GUI Administrator Password for Port 8889:  vadmin:vadmin
-* Server Subnet (Velociraptor):  10.100.1.0/24
-* User Subnet (Windows 10 VM):  10.100.30.0/24
-* Velociraptor Internal IP:  10.100.1.4
-* Windows 10 VM Internal IP:  10.100.30.11
-* Public IP Addresses:  Dynamic Azure allocation for both Velociraptor and Windows 10 VM
-
+* **Windows VM Admin credentials:**
+  * RTCAdmin:Password123
 * **Subnets**
   * 10.100.1.0/24 (Server Subnet with HELK + Velociraptor)
   * 10.100.30.0/24 (User Subnet with Windows Endpoint)
