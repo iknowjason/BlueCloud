@@ -35,9 +35,10 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 * Terraform templates write customizable Ansible Playbook configuration
 * Azure and AWS Security Groups (NSGs) can whitelist your source prefix (for added security)
 * The following ports are opened through Azure and AWS Security Groups for ingress TCP traffic: RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), HTTPS (443), Spark (8080), KQL (8088), Zookeeper (2181), Velociraptor GUI (8889), Velociraptor Agent (8000)
-**Approximate build time:**  16 minutes
-**Approximate Monthly Cost:**  $ per month
+* **Approximate build time:**  16 minutes
+* **Approximate Monthly Cost:**  $ per month
 
+# Infrastructure and Credentials
 * **Windows VM Admin credentials:**
   * RTCAdmin:Password123
 * **Subnets**
