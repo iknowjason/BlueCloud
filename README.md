@@ -106,9 +106,9 @@ https://<IP ADDRESS>:8889
 
 # Installation
 
-For Azure installation, follow this link.
+For Azure installation, navigate to the Azure directory.
 
-For AWS installation, follow this link.
+For AWS installation, navigate to the AWS directory.
 
 **Note:**  Tested on Ubuntu 20.04
 
