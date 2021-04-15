@@ -104,7 +104,11 @@ https://<IP ADDRESS>:8889
 * Ansible:  Tested on 2.9.6
 
 
-## Installation Steps
+# Installation
+
+For Azure installation, follow this link.
+
+For AWS installation, follow this link.
 
 **Note:**  Tested on Ubuntu 20.04
 
