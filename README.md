@@ -41,9 +41,9 @@ Automated deployment of one Velociraptor server with one registered Windows 10 e
 # Infrastructure and Credentials
 * **Velociraptor + HELK Internal IP**
   * 10.100.1.5
-* **Windows Endpoint Internal IP**
+* **Windows VM Internal IP**
   * 10.100.30.11
-* **Windows VM Admin credentials:**
+* **Windows VM Local Administrator credentials:**
   * RTCAdmin:Password123
 * **Subnets**
   * 10.100.1.0/24 (Server Subnet with HELK + Velociraptor)
