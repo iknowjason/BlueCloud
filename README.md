@@ -4,6 +4,13 @@ Automated Terraform deployment of HELK in Azure!  Automated deployment of one HE
 # Overview
 Multi-use Hybrid + Identity Cyber Range implementing a small Active Directory Domain in Azure alongside Azure AD and Azure Domain Services.  Automated templates for building your own Pentest / Red Team / Cyber Range in the Azure cloud!  Purple Cloud is a small Active Directory enterprise deployment automated with Terraform / Ansible Playbook templates to be deployed in Azure.  Purple Cloud also includes an adversary node accessible over RDP as well as a DFIR & Live Response system (Velociraptor + HELK).
 
+Automated Terraform deployment of Velociraptor in Azure!  
+
+https://www.velocidex.com/about/
+
+Automated deployment of one Velociraptor server with one registered Windows 10 endpoint in Azure VM infrastructure.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small Velociraptor R&D lab.
+
+
 # Quick Fun Facts:
 * Deploys one (1) Ubuntu Linux 18.04 HELK Server
 * Automatically deploys this HELK install option:  Option 4: 8GB includes KAFKA + KSQL + ELK + NGNIX + SPARK + JUPYTER + ELASTALERT
@@ -17,6 +24,19 @@ Multi-use Hybrid + Identity Cyber Range implementing a small Active Directory Do
 * Azure Network Security Groups (NSGs) can whitelist your source prefix, for added security
 * The following ports are opened through Azure NSGs for ingress TCP traffic: RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), HTTPS (443), Spark (8080), KQL (8088), Zookeeper (2181)
 
+* Deploys one (1) Ubuntu Linux Velociraptor Server and one (1) Windows 10 Professional endpoint
+* Automatically registers the endpoint to the Velociraptor server with TLS self-signed certificate configuration
+* Uses Terraform templates to automatically deploy in Azure with VMs
+* Terraform VM modules are flexible, allowing you to add your own new VMs in Azure
+* Windows endpoint includes Atomic Red Team (ART), Elastic Detection RTA, and APTSimulator
+* Velociraptor server service is installed via Debian package
+* Terraform templates write Ansible Playbook configuration, which can be customized
+* **Deployment Time:**  Approximately 8 minutes and 50 seconds
+* **Approximate Monthly Cost:**  $57.91 per month
+* Azure Network Security Groups (NSGs) can whitelist your source prefix, for added security
+* The following ports are opened through Azure NSGs for ingress TCP traffic:  RDP (3389), WinRM HTTP (5985), WinRM HTTPS (5986), SSH (22), Velociraptor GUI (8889), Velociraptor Agent (8000)
+
+
 # Infrastructure and Credentials
 * Windows 10 VM Admin credentials:  HELKAdmin:Password123
 * HELK Linux OS username:  helk (Uses SSH public key auth)
@@ -26,6 +46,16 @@ Multi-use Hybrid + Identity Cyber Range implementing a small Active Directory Do
 * HELK Internal IP:  10.100.1.4
 * Windows 10 VM Internal IP:  10.100.30.11
 * Public IP Addresses:  Dynamic Azure allocation for both HELK and Windows 10 VM
+
+* Windows 10 VM Admin credentials:  VAdmin:Password123
+* Velociraptor Linux OS username:  vadmin (Uses SSH public key auth)
+* Velociraptor GUI Administrator Password for Port 8889:  vadmin:vadmin
+* Server Subnet (Velociraptor):  10.100.1.0/24
+* User Subnet (Windows 10 VM):  10.100.30.0/24
+* Velociraptor Internal IP:  10.100.1.4
+* Windows 10 VM Internal IP:  10.100.30.11
+* Public IP Addresses:  Dynamic Azure allocation for both Velociraptor and Windows 10 VM
+
 
 # Remote Access (After Deployment)
 * Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
@@ -37,6 +67,18 @@ $ ssh -i ssh_key.pem helk@<IP ADDRESS>
 ```
 https://<IP ADDRESS>
 ```
+
+* Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
+* Velociraptor Server:  Change into the modules/velociraptor directory and view contents of hosts.cfg.  The second line should show the IP address of the Velociraptor server that is provisioned a public IP from Azure.  You can SSH to the host from within that directory:
+```
+$ ssh -i ssh_key.pem vadmin@<IP ADDRESS>
+```
+* Velociraptor GUI:  Use the step above to get the public Azure IP address of the Velociraptor Server.  Use Firefox browser to navigate to:
+```
+https://<IP ADDRESS>:8889
+```
+
+
 
 **Note:**  Tested on Ubuntu Linux 20.04 
 
