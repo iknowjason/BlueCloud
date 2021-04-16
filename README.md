@@ -1,5 +1,5 @@
 # Overview
-Small Cyber Range deployment of HELK and Velociraptor!  Automated deployment of one system running HELK + Velocirpator server with one registered Windows endpoint in Azure or AWS.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small HELK + Velociraptor R&D lab.
+Cyber Range deployment of HELK and Velociraptor!  Automated terraform deployment of one system running HELK + Velocirpator server with one registered Windows endpoint in Azure or AWS.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small HELK + Velociraptor R&D lab.
 
 
 # Use Cases
