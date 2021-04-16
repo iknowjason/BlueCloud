@@ -19,34 +19,15 @@ Install Ansible
 $ sudo apt-get install ansible
 ```
 
-**Step 2:** Set up an Azure Service Principal on your Azure subscription that allows Terraform to automate tasks under your Azure subscription.
+**Step 2:** Generate AWS programmatic API keys and take note of your access_key and secret_key.
 
-
-Follow the exact instructions in this Microsoft link:
-https://docs.microsoft.com/en-us/azure/developer/terraform/getting-started-cloud-shell
-
-These were the two basic commands that were run based on this link above:
-```
-az ad sp create-for-rbac --role="Owner" --scopes="/subscriptions/<subscription_id>"
-```
-and this command below.  From my testing I needed to use a role of "Owner" instead of "Contributor".  Default Microsoft documentation shows role of "Contributor" which resulted in errors.  
-```
-az login --service-principal -u <service_principal_name> -p "<service_principal_password>" --tenant "<service_principal_tenant>"
-```
-Take note of the following which we will use next to configure our Terraform Azure provider:
-```
-subscription_id = ""
-client_id = ""
-client_secret = ""
-tenant_id = ""
-```
 
 **Step 3:** Clone this repo
 ```
 $ git clone https://github.com/iknowjason/BlueCloud.git
 ```
 
-**Step 4:** First, copy the terraform.tfexample to terraform.tfvars.  Next, using your favorite text editor, edit the terraform.tfvars file for the Azure resource provider matching your Azure Service Principal credentials.  
+**Step 4:** First, copy the terraform.tfexample to terraform.tfvars.  Next, using your favorite text editor, edit the terraform.tfvars file for the AWS resource provider matching your AWS API key values.  
 
 ```
 cd BlueCloud/aws/deploy
@@ -54,25 +35,21 @@ cp terraform.tfexample terraform.tfvars
 vi terraform.tfvars
 ```
 
-Edit these parameters in the terraform.tfvars file, replacing "REPLACE_WITH_YOUR_VALUES" to correctly match your Azure environment.  
+Edit these parameters in the terraform.tfvars file, replacing "REPLACE_WITH_YOUR_VALUES" to correctly match your AWS environment.  
 ```
-arm_client_id = "REPLACE_WITH_YOUR_VALUES"
-arm_client_secret = "REPLACE_WITH_YOUR_VALUES"
-subscription_id = "REPLACE_WITH_YOUR_VALUES"
-tenant_id = "REPLACE_WITH_YOUR_VALUES"
+access_key = "REPLACE_WITH_YOUR_VALUES"
+secret_key = "REPLACE_WITH_YOUR_VALUES"
 ```
 
-Your terraform.tfvars file should look similar to this but with your own Azure Service Principal credentials:
+Your terraform.tfvars file should look similar to this but with your own AWS API key credentials:
 ```
-arm_client_id = "7e9c2cce-8bd4-887d-b2b0-90cd1e6e4781"
-arm_client_secret = ":+O$+adfafdaF-?%:.?d/EYQLK6po9`|E<["
-subscription_id = "aa9d8c9f-34c2-6262-89ff-3c67527c1b22"
-tenant_id = "8b6817d9-f209-2071-8f4f-cc03332847cb"
+access_key = "AKIAS3EPLMIHS6T7OWNU"
+secret_key = "MHEmms+8Rh2l5JB+qhDcFnFaSzE7xfRi8GMhUGzY"
 ```
 
-**Step 5:**  Edit the terraform.tfvars file to include your source network prefix for properly white listing Azure Network Security Groups (NSGs).
+**Step 5:**  Edit the terraform.tfvars file to include your source network prefix for properly white listing AWS Security Groups.
 Edit the following file:  deploy/terraform.tfvars
-At the bottom of the file, uncomment the "src_ip" variable and populate it with your correct source IP address.  If you don't do this, the Azure NSGs will open up your two VMs to the public Internet.  Below is exactly where the variable should be uncommented and an example of what it looks like:
+At the bottom of the file, uncomment the "src_ip" variable and populate it with your correct source IP address.  If you don't do this, the AWS Security Groups will open up your two VMs to the public Internet.  Below is exactly where the variable should be uncommented and an example of what it looks like:
 ```
 # Set variable below for IP address prefix for white listing Azure NSG
 # uncomment variable below; otherwise, all of the public Internet will be permitted
@@ -94,6 +71,6 @@ This should start the Terraform automated deployment plan
 
 # Shutting down / cleaning up
 ```
-$ cd BlueCloud/azure/deploy
+$ cd BlueCloud/aws/deploy
 $ ./destroy.sh
 ```
