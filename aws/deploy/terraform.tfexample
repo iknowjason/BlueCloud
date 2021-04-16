@@ -1,0 +1,32 @@
+# AWS Provider info
+region 		= "us-east-1"
+access_key 	= "REPLACE_WITH_YOUR_VALUES"
+secret_key 	= "REPLACE_WITH_YOUR_VALUES"
+
+# Environment
+location 		= "My Location"
+resource_group_name 	= "bluecloud"
+environment_name 	= "devops1"
+
+# Security Groups 
+sg_velocihelk    = ""
+sg_windows       = ""
+
+# EC2 SSH keypair
+key_name	 = ""
+private_key	 = ""
+
+# Network
+sn_velocihelk = ""
+sn_windows    = ""
+vpc_cidr	= "10.100.0.0/16"
+vpc_id		= ""
+
+vmcount = "1"
+
+###
+### Set variable below for IP address prefix for white listing Azure NSG
+### Uncomment; otherwise, all of the public Internet will be permitted
+### https://ifconfig.me/ 
+### curl https://ifconfig.me
+src_ip = "99.182.28.252/32"

@@ -4,8 +4,6 @@ variable subscription_id {}
 variable tenant_id {}
 variable arm_client_id {}
 variable arm_client_secret {}
-variable aad_client_id {}
-variable aad_client_secret {}
 
 # Generic info
 variable location {}
