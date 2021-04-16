@@ -1,17 +1,5 @@
 # Overview
-Automated Terraform deployment of HELK in Azure!  Automated deployment of one HELK server with one registered Windows 10 endpoint in Azure VM infrastructure.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small HELK R&D lab.
-
-# Overview
-Multi-use Hybrid + Identity Cyber Range implementing a small Active Directory Domain in Azure alongside Azure AD and Azure Domain Services.  Automated templates for building your own Pentest / Red Team / Cyber Range in the Azure cloud!  Purple Cloud is a small Active Directory enterprise deployment automated with Terraform / Ansible Playbook templates to be deployed in Azure.  Purple Cloud also includes an adversary node accessible over RDP as well as a DFIR & Live Response system (Velociraptor + HELK).
-
-# Overview
-
-Automated Terraform deployment of Velociraptor in Azure!  
-
-https://www.velocidex.com/about/
-
-Automated deployment of one Velociraptor server with one registered Windows 10 endpoint in Azure VM infrastructure.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small Velociraptor R&D lab.
-
+Small Cyber Range deployment of HELK and Velociraptor!  Automated deployment of one system running HELK + Velocirpator server with one registered Windows endpoint in Azure or AWS.  A collection of Terraform and Ansible scripts that automatically (and quickly) deploys a small HELK + Velociraptor R&D lab.
 
 
 # Use Cases
