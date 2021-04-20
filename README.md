@@ -49,27 +49,6 @@ Cyber Range deployment of HELK and Velociraptor!  Automated terraform deployment
 * **Windows OS in AWS:**
   * Windows 2019 Server
 
-# Remote Access (After Deployment)
-* Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
-* HELK Server:  Change into the modules/helk directory and iew contents of hosts.cfg.  The second line should show the IP address of the HELK server that is provisioned a public IP from Azure.  You can SSH to the host from within that directory:
-```
-$ ssh -i ssh_key.pem helk@<IP ADDRESS>
-```
-* Kibana GUI:  Use the step above to get the public Azure IP address of the HELK Server.  Use Firefox browser to navigate to:
-```
-https://<IP ADDRESS>
-```
-
-* Windows 10 VM:  Change into the modules/win10-vm1 directory and view contents of hosts.cfg.  The second line should show the IP address of the Windows 10 VM.  Just RDP to it with Admin credentials above.
-* Velociraptor Server:  Change into the modules/velociraptor directory and view contents of hosts.cfg.  The second line should show the IP address of the Velociraptor server that is provisioned a public IP from Azure.  You can SSH to the host from within that directory:
-```
-$ ssh -i ssh_key.pem vadmin@<IP ADDRESS>
-```
-* Velociraptor GUI:  Use the step above to get the public Azure IP address of the Velociraptor Server.  Use Firefox browser to navigate to:
-```
-https://<IP ADDRESS>:8889
-```
-
 # Remote Access
 * **Velociraptor + HELK Server:**  View contents of modules/velocihelk-vm/hosts.cfg.  The second line should show the IP address of the Velociraptor + HELK server that is provisioned a public IP from Azure.  You can SSH to the host from within that directory:
 ```
