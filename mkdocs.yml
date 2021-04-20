@@ -1,0 +1,34 @@
+site_name: Hybrid + Identity Cyber Range 
+nav:
+   - Home: index.md
+   - Use Cases: usecases.md
+   - Features: features.md
+   - Credentials : infrastructure.md
+   - Remote Access : remoteaccess.md
+   - Azure Install : azureinstall.md
+   - AWS Install : awsinstall.md
+   - APT Simulation : apt.md
+   - References : references.md
+   - Credits : credits.md
+theme:
+  name: material
+  font:
+    text: Roboto
+  palette:
+    # Light mode
+    - green: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue 
+      accent: blue 
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
