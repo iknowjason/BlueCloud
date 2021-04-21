@@ -1,10 +1,12 @@
-# AWS Installation
-**Note:**  Tested on Ubuntu Linux 20.04 
+# AWS Install
 
-## Requirements
+## AWS Requirements
 * AWS Programmatic API keys
 * Terraform:  Tested on v0.14.7
 * Ansible:  Tested on 2.9.6
+
+## Important Security Information:  Security Groups
+Some people might be concerned about publicly exposing these cloud resources.  By default, the security groups are wide open for all source prefixes.  There is a variable that will whitelist your source prefix so that only the networks you specify will be allowed through AWS Security Groups.  Make sure you pay close attention to the "src_ip" variable in step 5 below.
 
 ## AWS Installation Steps
 

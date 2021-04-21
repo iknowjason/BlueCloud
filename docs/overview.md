@@ -1,4 +1,12 @@
-# Features and Information
+## Use Cases
+* EDR Testing lab
+* PoC / Product Security Lab 
+* Penetration Testing lab
+* SIEM / Threat Hunting / DFIR / Live Response lab with HELK + Velociraptor [1, 2]
+* Data Science research with HELK server, Jupyter notebooks
+* Detection Engineering research with Mordor [3, 4]
+
+## Features and Information
 * **New Feature: Combined Velociraptor + HELK System!**  Velociraptor [1] + Hunting ELK [2] System: Windows 10 Endpoints instrumented with agents to auto register Velociraptor and send Sysmon logs
 * **New Feature:**  Three tools for Adversary Simulation: Script to automatically invoke Atomic Red Team unit tests using Ansible playbook.
 * **New Feature:**  Support for AWS and Azure - Terraform provider support for AWS, Azure.

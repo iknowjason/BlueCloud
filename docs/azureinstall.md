@@ -1,10 +1,13 @@
-# Azure Installation
-**Note:**  Tested on Ubuntu Linux 20.04 
+# Installation
 
-## Requirements
+## Azure Requirements
 * Azure tenant and subscription
 * Terraform:  Tested on v0.14.7
 * Ansible:  Tested on 2.9.6
+
+## Important Security Information:  Security Groups
+Some people might be concerned about publicly exposing these cloud resources.  By default, the security groups are wide open for all source prefixes.  There is a variable that will whitelist your source prefix so that only the networks you specify will be allowed through Azure NSGs.  Make sure you pay close attention to the "src_ip" variable in step 7 below.
+
 
 ## Azure Installation Steps
 
@@ -97,4 +100,3 @@ This should start the Terraform automated deployment plan
 $ cd BlueCloud/azure/deploy
 $ ./destroy.sh
 ```
-

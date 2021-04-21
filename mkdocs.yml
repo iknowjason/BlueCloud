@@ -3,13 +3,12 @@ repo_url: https://github.com/iknowjason/BlueCloud
 repo_name: iknowjason/BlueCloud
 nav:
    - Home: index.md
-   - Use Cases: usecases.md
-   - Features: features.md
-   - Credentials : infrastructure.md
-   - Remote Access : remoteaccess.md
+   - Overview: overview.md
+   - Cost: cost.md
+   - Creds and Access : infrastructure.md
    - Azure Install : azureinstall.md
    - AWS Install : awsinstall.md
-   - APT Simulation : apt.md
+   - Security Testing : apt.md
    - References : references.md
    - Credits : credits.md
 theme:
