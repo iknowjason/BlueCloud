@@ -19,7 +19,7 @@ Run it like this:
 ```
 python3 invoke-art.py
 ```
-The script looks for all hosts.cfg files in the working directory and runs the atomic tests against all Windows 10 hosts.  If you only want to run against one of the hosts, run it with the -h flag.  For example:
+The script looks for all hosts.cfg files in the working directory and runs the atomic tests against all host cfg files.  If you only want to run against one of the hosts, run it with the -h flag.  For example:
 ```
 python3 invoke-art.py -h hosts-Win10-Liem.cfg
 ```
@@ -33,9 +33,9 @@ The script looks for the atomic tests in windows index file:
 
 ```
 
-**Manually Running Atomics from the Windows Endpoint**
+**Manually Running Atomics from the Windows System**
 
-RDP into the Windows 10 endpoint.  From a powershell session, simply run:
+RDP into the Windows system.  From a powershell session, simply run:
 ```PS C:\ > Invoke-AtomicTest <ATOMIC_TEST> -PathToAtomicsFolder C:\terraform\ART\atomic-red-team-master\atomics```
 
 
