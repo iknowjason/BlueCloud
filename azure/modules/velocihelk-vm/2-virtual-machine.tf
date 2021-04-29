@@ -8,7 +8,10 @@ resource "tls_private_key" "example_ssh" {
     rsa_bits = 4096
 }
 # Enable if you want to see the SSH key - It is written to a file
-output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+output "tls_private_key" { 
+  value = tls_private_key.example_ssh.private_key_pem 
+  sensitive = true
+  }
 
 resource "azurerm_linux_virtual_machine" "vh_vm" {
   name                          = local.virtual_machine_name
