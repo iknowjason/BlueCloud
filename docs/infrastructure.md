@@ -13,7 +13,7 @@
 * **HELK Kibana Administrator Password for https port 443**  
   * helk:hunting
 * **Velociraptor GUI Administrator Password for Port 8889**  
-  * vadmin:vadmin
+  * helk:helk
 * **Windows OS in Azure:**
   * Windows 10 Pro
 * **Windows OS in AWS:**
