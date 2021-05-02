@@ -18,7 +18,7 @@ explain the increase at end of billing month.
 |    2 days     |     $17.52     |
 |    3 days     |     $27.39     |
 |    4 days     |     $35.93     |
-|    4 days     |     $35.93     |
+|    5 days     |     $47.61     |
 |    6 days     |     $59.64     |
 
 
