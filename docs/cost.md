@@ -7,8 +7,8 @@ As this tool spins up cloud resources, it will result in charges to your Azure o
 ## Azure Cost Analysis
 Use the Cost Analysis feature of Azure to measure the daily cost of the enabled 
 resources.  Here are some approximate figures with standing up a new subscription
-and resource group and then running BlueCloud.  The approximate cost is $59.64 after 
-running the lab for 6 days.  Day 5 was the last day of the billing month, which might 
+and resource group and then running BlueCloud.  The approximate cost is $71.31 after 
+running the lab for 7 days.  Day 5 was the last day of the billing month, which might 
 explain the increase at end of billing month.
 
 ### Table:  Azure Accrued Costs
@@ -20,14 +20,15 @@ explain the increase at end of billing month.
 |    4 days     |     $35.93     |
 |    5 days     |     $47.61     |
 |    6 days     |     $59.64     |
+|    7 days     |     $71.31     |
 
 
 ### Screen Shot from Azure Subscription 
 Here is a screen shot showing costs accrued from a new installation on my subscription 
-after 6 days.
+after 7 days.
 
  
-![](images/day6-bc.png)
+![](images/day7-bc.png)
 
 
 ## AWS Cost Analysis
@@ -39,5 +40,11 @@ Below are some samples on a new installation of running BlueCloud on AWS.  The b
 |    4 days     |     $21.01     |
 |    5 days     |     $25.04     |
 |    6 days     |     $28.34     |
-|    7 days     |                |
+|    7 days     |     $37.10     |
 
+
+### Screen Shot from AWS Subscription 
+Here is a screen shot showing costs accrued from a new installation on my subscription 
+after 7 days.
+
+![](images/day7-bc-aws.png)
