@@ -65,10 +65,10 @@ subscription_id = "REPLACE_WITH_YOUR_VALUES"
 tenant_id = "REPLACE_WITH_YOUR_VALUES"
 ```
 
-Your terraform.tfvars file should look similar to this but with your own Azure Service Principal credentials:
+Your terraform.tfvars file should look similar to this but with your own Azure Service Principal credentials.  Note that these are fake credentials listed below for demonstration purposes.  They are not valid account credentials that will work:
 ```
-arm_client_id = "7e9c2cce-8bd4-887d-b2b0-90cd1e6e4781"
-arm_client_secret = ":+O$+adfafdaF-?%:.?d/EYQLK6po9`|E<["
+arm_client_id = "7e9c2cce-8bd4-987d-a2b0-70cd1e6e4781"
+arm_client_secret = ":+O$+adfaadaF-?%:.?d/EYQLK6po9`|E<["
 subscription_id = "aa9d8c9f-34c2-6262-89ff-3c67527c1b22"
 tenant_id = "8b6817d9-f209-2071-8f4f-cc03332847cb"
 ```

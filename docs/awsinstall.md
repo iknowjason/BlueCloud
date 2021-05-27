@@ -43,10 +43,10 @@ access_key = "REPLACE_WITH_YOUR_VALUES"
 secret_key = "REPLACE_WITH_YOUR_VALUES"
 ```
 
-Your terraform.tfvars file should look similar to this but with your own AWS API key credentials:
+Your terraform.tfvars file should look similar to this but with your own AWS API key credentials.  Note that these are sample fake credentials for demonstration purposes and not valid for any account:
 ```
-access_key = "AKIAS3EPLMIHS6T7OWNU"
-secret_key = "MHEmms+8Rh2l5JB+qhDcFnFaSzE7xfRi8GMhUGzY"
+access_key = "AKIAS3DPLMIHS7T7OWNU"
+secret_key = "MHEmms+6Rh1l4JB+ihDcFnFaSzE7xfRi8GMhUGzY"
 ```
 
 **Step 5:**  Edit the terraform.tfvars file to include your source network prefix for properly white listing AWS Security Groups.

@@ -8,8 +8,10 @@
 * **Subnets**
   * 10.100.1.0/24 (Server Subnet with HELK + Velociraptor)
   * 10.100.30.0/24 (User Subnet with Windows Endpoint)
-* **HELK + Velociraptor Linux OS username**  
+* **HELK + Velociraptor Linux OS username (Azure)**  
   * helk (Uses SSH public key auth)
+* **HELK + Velociraptor Linux OS username (AWS)**  
+  * ubuntu (Uses SSH public key auth)
 * **HELK Kibana Administrator Password for https port 443**  
   * helk:hunting
 * **Velociraptor GUI Administrator Password for Port 8889**  
