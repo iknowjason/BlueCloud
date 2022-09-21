@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "3.35.0"
+      version = "4.31.0"
     }
   }
 }
@@ -69,7 +69,7 @@ module "velocihelk" {
   sg_velocihelk		    = module.network.sg_velocihelk 
   sn_velocihelk             = module.network.sn_velocihelk 
   vhprivate_ip_address      = local.vhprivate_ip_address 
-  key_name	            = module.key_pair.key_pair_key_name
+  key_name	            = module.key_pair.key_pair_name
   private_key	            = tls_private_key.this.private_key_pem
 
 }
@@ -79,7 +79,7 @@ module "ws2019" {
   source                    = "../modules/ws2019-vm"
   sg_windows	             = module.network.sg_windows 
   sn_windows                 = module.network.sn_windows 
-  key_name	             = module.key_pair.key_pair_key_name
+  key_name	             = module.key_pair.key_pair_name
   private_key	            = tls_private_key.this.private_key_pem
   admin_username            = local.admin_username
   admin_password            = local.admin_password
